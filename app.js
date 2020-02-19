@@ -1,5 +1,6 @@
 const express = require("express");
-const stripe = require("stripe")("sk_test_ECIx2xMd9Ojzt4l5lfFO8YZA00npBeuKoL");
+const keys = require("./config/keys");
+const stripe = require("stripe")(keys.stripeSecretKey);
 const exphbs = require("express-handlebars");
 
 const app = express();
@@ -14,7 +15,26 @@ app.use(express.json({ extended: false }));
 app.use(express.static(`${__dirname}/public`));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { stripePublishableKey: keys.stripePublishableKey });
+});
+
+app.post("/charge", (req, res) => {
+  const amount = 1999;
+
+  stripe.customers
+    .create({
+      email: req.body.stripeEmail,
+      source: req.body.stripeToken
+    })
+    .then(customer =>
+      stripe.charges.create({
+        amount,
+        description: "Internet Etiquette Ebook",
+        currency: "usd",
+        customer: customer.id
+      })
+    )
+    .then(charge => res.render("success"));
 });
 
 const port = process.env.PORT || 5000;
