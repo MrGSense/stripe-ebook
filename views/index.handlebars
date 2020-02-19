@@ -5,9 +5,9 @@
             <p class="lead">Learn to stay classy while browsing the web</p>
             <form action="/charge" method="POST">
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="pk_test_IiPIeiB1VRxnoWq1Uj3PbFNf00kEaVQsDW" data-amount="1999"
-                    data-name="Internet Etiquette Ebook" data-description="Ebook for great internet etiquette"
-                    data-image="/img/marketplace.jpg" data-locale="auto">
+                    data-key="{{stripePublishableKey}}" data-amount="1999" data-name="Internet Etiquette Ebook"
+                    data-description="Ebook for great internet etiquette" data-image="/img/marketplace.jpg"
+                    data-locale="auto">
                     </script>
                 <script>
                     // Hide default stripe button
