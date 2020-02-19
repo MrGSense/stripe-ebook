@@ -3,6 +3,18 @@
         <div class="col-md-6 text-center">
             <h1 class="display-3 mt-3 pt-5">Internet Etiquette Ebook</h1>
             <p class="lead">Learn to stay classy while browsing the web</p>
+            <form action="/charge" method="POST">
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_IiPIeiB1VRxnoWq1Uj3PbFNf00kEaVQsDW" data-amount="1999"
+                    data-name="Internet Etiquette Ebook" data-description="Ebook for great internet etiquette"
+                    data-image="/img/marketplace.jpg" data-locale="auto">
+                    </script>
+                <script>
+                    // Hide default stripe button
+                    document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+                </script>
+                <button type="submit" class="btn btn-outline-dark text-white btn-lg">Purchase for $19.99</button>
+            </form>
         </div>
         <div class="col-md-6">
             <img src="/img/book.jpg" class="img-fluid" alt="Ebook">
