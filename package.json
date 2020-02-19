@@ -1,0 +1,16 @@
+{
+  "name": "ebook-stripe",
+  "version": "1.0.0",
+  "description": "Ebook site using stripe",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Kyle Fetterhoff",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "stripe": "^8.19.0"
+  }
+}
